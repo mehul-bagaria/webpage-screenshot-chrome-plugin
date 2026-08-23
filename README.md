@@ -1,0 +1,1 @@
+# webpage-screenshot-chrome-plugin
