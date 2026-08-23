@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PageShot settings</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand-area">
+        <div class="brand-tab">PAGESHOT</div>
+        <div class="brand-caption">Development build</div>
+      </div>
+
+      <nav class="nav" aria-label="Settings sections">
+        <button class="nav-button active" type="button" data-view="settingsView">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06-2.83 2.83-.06-.06a1.7 1.7 0 0 0-1.88-.34A1.7 1.7 0 0 0 14 20.92V21h-4v-.08A1.7 1.7 0 0 0 8.97 19.4a1.7 1.7 0 0 0-1.88.34l-.06.06-2.83-2.83.06-.06A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-1.55-1.03H3v-4h.08A1.7 1.7 0 0 0 4.6 8.94a1.7 1.7 0 0 0-.34-1.88L4.2 7l2.83-2.83.06.06a1.7 1.7 0 0 0 1.88.34A1.7 1.7 0 0 0 10 3.05V3h4v.08a1.7 1.7 0 0 0 1.03 1.52 1.7 1.7 0 0 0 1.88-.34l.06-.06L19.8 7l-.06.06a1.7 1.7 0 0 0-.34 1.88 1.7 1.7 0 0 0 1.55 1.03H21v4h-.08A1.7 1.7 0 0 0 19.4 15Z"/></svg>
+          Settings
+        </button>
+        <button class="nav-button" type="button" data-view="aboutView">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 10.5v6M12 7.5h.01"/></svg>
+          About
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="local-chip"><span class="local-dot"></span>Local-only processing</div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <div class="eyebrow">PageShot</div>
+          <h1 id="pageTitle">Settings</h1>
+          <p id="pageDescription">Configure how PageShot names, captures, and saves screenshots.</p>
+        </div>
+        <div class="version-chip">v<span id="versionText">1.2.0</span> dev</div>
+      </header>
+
+      <section id="settingsView" class="view active">
+        <div class="section-heading">
+          <h2>General</h2>
+          <p>Preferences are stored locally in Chrome and stay on this device.</p>
+        </div>
+
+        <form id="settingsForm" class="card">
+          <div class="setting-row">
+            <div class="setting-copy">
+              <label for="imageFormat">Image format</label>
+              <p>Select the file format used for saved screenshots.</p>
+            </div>
+            <div class="control">
+              <select id="imageFormat">
+                <option value="png">PNG — recommended</option>
+                <option value="jpeg">JPEG</option>
+                <option value="webp">WebP</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="setting-row">
+            <div class="setting-copy">
+              <label for="filenamePrefix">Filename prefix</label>
+              <p>Text placed at the beginning of each saved screenshot.</p>
+            </div>
+            <div class="control"><input id="filenamePrefix" type="text" maxlength="40" autocomplete="off" placeholder="screenshot"></div>
+          </div>
+
+          <div class="setting-row">
+            <div class="setting-copy">
+              <label for="downloadFolder">Download subfolder</label>
+              <p>Saved inside Chrome's configured Downloads directory.</p>
+            </div>
+            <div class="control field-wrap">
+              <input id="downloadFolder" type="text" maxlength="300" autocomplete="off" placeholder="Webpage Screenshots">
+              <span class="field-hint">Use a relative folder name only.</span>
+            </div>
+          </div>
+
+          <div class="setting-row">
+            <div class="setting-copy">
+              <label for="scrollDelay">Full-page scroll delay</label>
+              <p>Extra wait time after each scroll step for the page to render.</p>
+            </div>
+            <div class="control">
+              <div class="number-control"><input id="scrollDelay" type="number" min="75" max="1000" step="25"><span>ms</span></div>
+            </div>
+          </div>
+
+          <div class="setting-row toggle-row">
+            <div class="setting-copy">
+              <label for="includeWebsiteName">Include website name in filename</label>
+              <p>Add the website hostname to saved filenames. Disable for more private filenames.</p>
+            </div>
+            <div class="control">
+              <label class="switch"><input id="includeWebsiteName" type="checkbox"><span class="slider"></span></label>
+            </div>
+          </div>
+
+          <div class="setting-row toggle-row">
+            <div class="setting-copy">
+              <label for="restoreScrollPosition">Restore scroll position after capture</label>
+              <p>Return the page to where you were after a full-page screenshot finishes.</p>
+            </div>
+            <div class="control">
+              <label class="switch"><input id="restoreScrollPosition" type="checkbox"><span class="slider"></span></label>
+            </div>
+          </div>
+
+          <div class="setting-row toggle-row">
+            <div class="setting-copy">
+              <label for="saveAs">Ask where to save</label>
+              <p>Show Chrome's save dialog instead of downloading automatically.</p>
+            </div>
+            <div class="control">
+              <label class="switch"><input id="saveAs" type="checkbox"><span class="slider"></span></label>
+            </div>
+          </div>
+
+          <div class="card-footer">
+            <span id="status" class="save-status" role="status" aria-live="polite"></span>
+            <button class="primary-button" type="submit">Save changes</button>
+          </div>
+        </form>
+      </section>
+
+      <section id="aboutView" class="view">
+        <div class="section-heading">
+          <h2>About</h2>
+          <p>A lightweight screenshot utility built around local-first browser APIs.</p>
+        </div>
+
+        <article class="about-card">
+          <div class="about-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><rect x="4" y="3.5" width="16" height="17" rx="3"/><path d="M8 8h8M8 12h6M8 16h4"/></svg>
+          </div>
+          <div class="about-main">
+            <div class="about-title-row">
+              <div>
+                <h3>PageShot</h3>
+                <p class="about-version">Development version · v<span id="aboutVersionText">1.2.0</span></p>
+              </div>
+              <span class="dev-badge">DEV BUILD</span>
+            </div>
+
+            <p class="about-description">PageShot captures visible areas and complete webpages as image files directly in Chrome. This build is intended for development and testing while the capture behavior and interface continue to be refined.</p>
+
+            <div class="about-grid">
+              <div class="about-item"><span>Processing</span><strong>Local only</strong></div>
+              <div class="about-item"><span>Network uploads</span><strong>None</strong></div>
+              <div class="about-item"><span>Default format</span><strong>PNG</strong></div>
+              <div class="about-item"><span>Platform</span><strong>Chrome MV3</strong></div>
+            </div>
+
+            <div class="development-note">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 10.5v6M12 7.5h.01"/></svg>
+              <div>
+                <strong>Development notice</strong>
+                <span>This version is under active development. Test important captures before relying on it for archival or production workflows.</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+  </div>
+  <script type="module" src="script.js"></script>
+</body>
+</html>

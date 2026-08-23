@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PageShot</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="popup">
+    <div class="ribbon">PAGESHOT</div>
+
+    <div class="topbar">
+      <button id="settingsBtn" class="settings-button" type="button" aria-label="Open settings" title="Settings">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="3.2"/>
+          <path d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06-2.83 2.83-.06-.06a1.7 1.7 0 0 0-1.88-.34 1.7 1.7 0 0 0-1.03 1.55V21h-4v-.08A1.7 1.7 0 0 0 8.97 19.4a1.7 1.7 0 0 0-1.88.34l-.06.06-2.83-2.83.06-.06A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-1.55-1.03H3v-4h.08A1.7 1.7 0 0 0 4.6 8.94a1.7 1.7 0 0 0-.34-1.88L4.2 7l2.83-2.83.06.06a1.7 1.7 0 0 0 1.88.34A1.7 1.7 0 0 0 10 3.05V3h4v.08a1.7 1.7 0 0 0 1.03 1.52 1.7 1.7 0 0 0 1.88-.34l.06-.06L19.8 7l-.06.06a1.7 1.7 0 0 0-.34 1.88 1.7 1.7 0 0 0 1.55 1.03H21v4h-.08A1.7 1.7 0 0 0 19.4 15Z"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="content">
+      <section class="heading">
+        <h1>Capture webpage</h1>
+        <p>Choose what you want to capture</p>
+      </section>
+
+      <section class="actions" aria-label="Capture options">
+        <button id="visibleBtn" class="capture-button primary" type="button">
+          <span class="icon-box" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="12" rx="1.8"/><path d="M8.5 20h7M12 16.5V20"/><path d="M7 8h10"/></svg>
+          </span>
+          <span class="button-title">Visible area</span>
+        </button>
+
+        <button id="fullBtn" class="capture-button secondary" type="button">
+          <span class="icon-box" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><rect x="5" y="3.5" width="11" height="17" rx="2"/><path d="M8 8h5M8 11.5h4.5M8 15h4"/><path d="M18.5 8v8m0 0-2.25-2.25M18.5 16l2.25-2.25"/></svg>
+          </span>
+          <span class="button-title">Full page</span>
+        </button>
+      </section>
+
+      <div id="status" class="status" role="status" aria-live="polite"></div>
+    </div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
